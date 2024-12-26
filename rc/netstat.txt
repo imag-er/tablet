@@ -1,0 +1,9 @@
+Address          Type   Recv-Q Send-Q            Inode             Conn             Refs          Nextref Addr
+48efa975abaebb7b stream      0      0                0 d93bc62d8fb5b9c3                0                0 /var/run/mDNSResponder
+d93bc62d8fb5b9c3 stream      0      0                0 48efa975abaebb7b                0                0
+23e84be31e1271da stream      0      0                0 821623673ea45e9d                0                0 /private/var/run/cupsd
+821623673ea45e9d stream      0      0                0 23e84be31e1271da                0                0
+89111ce2a41e913b stream      0      0                0 9af0ce563fd3a2ad                0                0 /var/run/mDNSResponder
+9af0ce563fd3a2ad stream      0      0                0 89111ce2a41e913b                0                0
+ec4bd7db8cae8a34 stream      0      0                0 685d68fc2bc0401e                0                0 /var/run/mDNSResponder
+685d68fc2bc0401e stream      0      0                0 ec4bd7db8cae8a34                0                0

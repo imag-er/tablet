@@ -1,0 +1,5 @@
+  UID   PID  PPID        F CPU PRI NI       SZ    RSS WCHAN     S             ADDR TTY           TIME CMD              STIME
+    0     1     0     4004   0  37  0 426853632   6672 -      Ss                  0 ??       187:26.09 /sbin/launchd    291124 
+    0    89     1     4004   0  31  0 427036944   8944 -      Ss                  0 ??        73:37.80 /usr/libexec/log 291124 
+    0    91     1     4004   0  31  0 426950912   4720 -      Ss                  0 ??         6:00.89 /usr/libexec/Use 291124 
+    0    93     1  1004004   0  50  0 426925120   4672 -      Ss                  0 ??        40:55.52 /System/Library/ 291124 

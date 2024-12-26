@@ -1,0 +1,3 @@
+CONTAINER ID   IMAGE                 COMMAND           CREATED        STATUS        PORTS                NAMES
+56e0f55e2c13   blockchain-frontend   "python app.py"   22 hours ago   Up 22 hours   0.0.0.0:80->80/tcp   blockchain-frontend-1
+7f5abe8170f5   blockchain-backend    "./main"          22 hours ago   Up 22 hours   0.0.0.0:82->82/tcp   blockchain-backend-1
