@@ -1,9 +1,9 @@
+use std::cmp::{Ordering::*, *};
 
-use std::{cmp::Ordering::*, cmp::*};
-
+#[derive(Clone,Debug)]
 pub struct TabletContent {
-    title: Vec<String>,
-    content: Vec<Vec<String>>,
+    pub title: Vec<String>,
+    pub content: Vec<Vec<String>>,
 }
 
 impl std::fmt::Display for TabletContent {
@@ -11,6 +11,7 @@ impl std::fmt::Display for TabletContent {
         write!(f, "{:#?}\n\n{:#?}", self.title, self.content[0])
     }
 }
+
 impl TabletContent {
     fn get_title(content: &String, split: &str) -> Vec<String> {
         // get the first line of content
@@ -46,7 +47,8 @@ impl TabletContent {
     pub fn new(tablet_content: &String) -> TabletContent {
         let mut title = TabletContent::get_title(tablet_content, " ");
         let mut content = TabletContent::get_content(tablet_content, " ");
-
+        // dbg!(&title);
+        // dbg!(&content);
         // old: 使用grid search ,尝试用 ' ' 或 "  " 划分 , 无法处理出现空项的问题
         // new (TODO): 考虑标题栏和内容栏都为空格的位置作为split的索引
 
@@ -69,36 +71,4 @@ impl TabletContent {
             Equal => TabletContent { title, content },
         }
     }
-}
-
-#[warn(unused_variables)]
-pub fn show(content: &mut TabletContent) {
-    let size = term_size::dimensions().unwrap();
-    let threshold = truncate_strings(&mut content.title, size.0);
-
-    println!("{}", content.title.join(" "));
-}
-
-fn truncate_strings(strings: &mut Vec<String>, line_width: usize) {
-    let n = strings.len();
-    let mut total_length = strings.iter().map(|s| s.len()).sum::<usize>();
-
-    // 最大长度作为threshold
-    let mut threshold = strings.iter().max_by_key(|s| s.len()).unwrap().len();
-
-    while total_length + n - 1 > line_width {
-        threshold -= 1;
-        total_length = strings
-            .iter()
-            .map(|s| min(s.len(), threshold))
-            .sum::<usize>();
-    }
-
-    // 截断字符串
-    for s in strings.iter_mut() {
-        if s.len() > threshold {
-            *s = s[..threshold].to_string();
-        }
-    }
-
 }
