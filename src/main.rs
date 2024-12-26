@@ -1,5 +1,4 @@
-mod Process;
-use Process::*;
+mod process;
 
 use std::{env, fs};
 
@@ -23,8 +22,8 @@ fn main() {
         for entry in entries {
             if let Ok(entry) = entry {
                 if let Ok(content) = fs::read_to_string(&entry.path()) {
-                    let mut tablet_content = TabletContent::new(&content);
-                    show(&mut tablet_content);
+                    let mut tablet_content = process::TabletContent::new(&content);
+                    process::show(&mut tablet_content);
                 }
             }
         }
